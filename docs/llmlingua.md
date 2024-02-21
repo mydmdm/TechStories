@@ -4,7 +4,7 @@
 
 In the era of Large Language Models (LLMs), users articulate their requests to LLMs through natural language prompts, which serve as directives for the models to produce tailored responses. This communicative mechanism is pivotal for the functionality of AI tools such as the coding assistant Github Copilot and the self-directed AI entity AutoGPT.
 
-![Prompts as a Communication Channel](.attachments/prompts_as_channel.png)
+![Prompts as a Communication Channel](images/prompts_as_channel.png)
 
 Take, for example, Presentation Copilot, an AI designed to assist with creating presentation slides. A user looking to prepare for an upcoming presentation would express their needs to the Copilot using a prompt. This prompt might encompass a variety of elements, such as the Copilot's role (e.g., slide designer), specific commands or skills (e.g., editing slide content), illustrative examples, and a query containing details pertinent to the presentation's topic.
 
@@ -36,7 +36,7 @@ Firstly, most of the prompts are manually written. Although guidance on writing 
 
 For example, in the left of the following figure (*source: [LongLLMLingua](https://arxiv.org/abs/2310.06839)*), LLM's performance degrade significant when given more irrelevant information in the prompt. In the right of the figure (*source: [lost-in-the-middle](https://arxiv.org/abs/2307.03172)*), we can see that the performance of LLMs saturates long before the retriever recall, indicating that the models have difficulty making use of the extra retrieved documents because of the irrelevant information in them.
 
-![Redundancy Degrade Performance](.attachments/prompt_compression_redundancy_degrade_perf.png)
+![Redundancy Degrade Performance](images/prompt_compression_redundancy_degrade_perf.png)
 
 Secondly, language is inherently redundant, especially in the scenarios of natural conversations, such as meeting transcripts. Therefore, prompts in such scenarios are likely to contain redundant and irrelevant information.
 
@@ -48,7 +48,7 @@ LLMs, while sensitive to redundant and irrelevant information, also show a posit
 
 As shown in the following figure (*source: [lost-in-the-middle](https://arxiv.org/abs/2307.03172)*), the performance of LLMs degrades significantly when the relevant information is placed in the middle of the prompt (on the left of the figure). Even query-aware contextualization (placing the query before and after the documents, on the right of the figure) does not substantially mitigate this issue.
 
-![Positional Bias](.attachments/prompt_compression_positional_bias.png)
+![Positional Bias](images/prompt_compression_positional_bias.png)
 
 This kind of positional bias exists in a wide range of LLMs, as shown by the [Needle-in-a-Haystack](https://github.com/gkamradt/LLMTest_NeedleInAHaystack) experiment, even the most advanced LLMs like GPT-4-128K and Claude 2.1 (200K Tokens) are not immune to this issue (visualized as below, *source: [github.com/gkamradt](https://github.com/gkamradt/LLMTest_NeedleInAHaystack)*).
 
@@ -87,7 +87,7 @@ With adoption of these techniques, we can enhance the efficiency and effectivene
 ### Architecture
 Now let's dive into the architecture of our proposal to see how we achieve the above goals. The following diagram illustrates the overall structure of our approach, in which the *Gray Italicized* boxes are steps of LLMLingua (also shared by LongLLMLingua) while the others are only for LongLLMLingua.
 
-![Architecture](.attachments/prompt_compression_longllmlingua_architecture.png)
+![Architecture](images/prompt_compression_longllmlingua_architecture.png)
 
 
 Here is a brief description of each step:
@@ -184,7 +184,7 @@ $$
 
 As shown in the following figure (*source: [LongLLMLingua](https://arxiv.org/abs/2310.06839)*), the contrastive perplexity can effectively identify the relevant tokens in the prompt (the peak of contrastive perplexity follows the answer's position changes).
 
-![prompt_compression_token_level_relevance_measure](.attachments/prompt_compression_token_level_relevance_measure.png)
+![prompt_compression_token_level_relevance_measure](images/prompt_compression_token_level_relevance_measure.png)
 
 Through this fine-grained analysis, we can discern the relevance of individual tokens and make informed decisions about which elements to compress or reposition, thereby enhancing the overall clarity and efficiency of the prompt.
 
@@ -192,20 +192,20 @@ Through this fine-grained analysis, we can discern the relevance of individual t
 
 Firstly we evaluate the performance of LLMLingua on the Multi-Document Question Answering task as below. It can perfectly mitigate the "lost in the middle" issue and improve up to 21.4% with only 1/4 of the tokens.
 
-![prompt_compression_longllmlingua_qa_perf](.attachments/prompt_compression_longllmlingua_qa_perf.png)
+![prompt_compression_longllmlingua_qa_perf](images/prompt_compression_longllmlingua_qa_perf.png)
 
 The following show LLMLingua's performance on the math and reasoning tasks.
 
-![prompt_compression_results_math_reasoning](.attachments/prompt_compression_results_math_reasoning.png)
+![prompt_compression_results_math_reasoning](images/prompt_compression_results_math_reasoning.png)
 
 To gain a deeper insight into the effects of token-level compression, the following figure visualizes the tokens retained (highlighted in green on the left) and those discarded (displayed with a light-blue background on the left). In the center of this illustration, we've encapsulated four types of phenomena that LLMLingua employs to compress the prompt. On the right side of the figure, it is evident that GPT models can almost perfectly reconstruct the original prompt from the compressed version.
 
 
-![prompt_compression_results_case_study](.attachments/prompt_compression_results_case_study.png)
+![prompt_compression_results_case_study](images/prompt_compression_results_case_study.png)
 
 And here is the performance of LLMLingua on the more tasks and datasets. Interested readers can refer to the [paper](https://arxiv.org/abs/2310.06839) for more details.
 
-![prompt_compression_results_longbench](.attachments/prompt_compression_results_longbench.png)
+![prompt_compression_results_longbench](images/prompt_compression_results_longbench.png)
 
 ## References
 - LLMLingua Project Pages
