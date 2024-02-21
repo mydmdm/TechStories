@@ -1,0 +1,828 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+    
+    
+      
+        <title>Improving Communication from Humans to LLMs through LLMLingua - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#improving-communication-from-humans-to-llms-through-llmlingua" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Improving Communication from Humans to LLMs through LLMLingua
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Improving Communication from Humans to LLMs through LLMLingua
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Improving Communication from Humans to LLMs through LLMLingua
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prompts-bridging-human-intention-and-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompts: Bridging Human Intention and LLM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prompts: Bridging Human Intention and LLM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenges-in-human-to-llm-communications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges in Human-to-LLM Communications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges in Human-to-LLM Communications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-costs-associated-with-processing-long-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      High costs associated with processing long prompts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redundancy-degrades-the-performance-of-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redundancy degrades the performance of LLM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positional-bias-that-leads-to-selective-information-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      Positional bias that leads to selective information loss
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-challenges-in-human-to-llm-communications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Challenges in Human-to-LLM Communications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enhancing-communication-with-llmlingua" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enhancing Communication with LLMLingua
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enhancing Communication with LLMLingua">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relevance-measurement-the-foundation-of-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relevance Measurement: The Foundation of Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Relevance Measurement: The Foundation of Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-perplexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Perplexity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coarse-grained-relevance-measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coarse-Grained Relevance Measurement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fine-grained-token-level-relevance-measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fine-Grained (Token-Level) Relevance Measurement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation-and-case-study" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evaluation and Case Study
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prompts-bridging-human-intention-and-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompts: Bridging Human Intention and LLM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prompts: Bridging Human Intention and LLM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenges-in-human-to-llm-communications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges in Human-to-LLM Communications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges in Human-to-LLM Communications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-costs-associated-with-processing-long-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      High costs associated with processing long prompts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redundancy-degrades-the-performance-of-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redundancy degrades the performance of LLM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positional-bias-that-leads-to-selective-information-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      Positional bias that leads to selective information loss
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-challenges-in-human-to-llm-communications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Challenges in Human-to-LLM Communications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enhancing-communication-with-llmlingua" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enhancing Communication with LLMLingua
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enhancing Communication with LLMLingua">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relevance-measurement-the-foundation-of-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relevance Measurement: The Foundation of Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Relevance Measurement: The Foundation of Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-perplexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Perplexity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coarse-grained-relevance-measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coarse-Grained Relevance Measurement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fine-grained-token-level-relevance-measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fine-Grained (Token-Level) Relevance Measurement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation-and-case-study" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evaluation and Case Study
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="improving-communication-from-humans-to-llms-through-llmlingua">Improving Communication from Humans to LLMs through LLMLingua</h1>
+<h2 id="prompts-bridging-human-intention-and-llm">Prompts: Bridging Human Intention and LLM</h2>
+<p>In the era of Large Language Models (LLMs), users articulate their requests to LLMs through natural language prompts, which serve as directives for the models to produce tailored responses. This communicative mechanism is pivotal for the functionality of AI tools such as the coding assistant Github Copilot and the self-directed AI entity AutoGPT.</p>
+<p><img alt="Prompts as a Communication Channel" src=".attachments/prompts_as_channel.png" /></p>
+<p>Take, for example, Presentation Copilot, an AI designed to assist with creating presentation slides. A user looking to prepare for an upcoming presentation would express their needs to the Copilot using a prompt. This prompt might encompass a variety of elements, such as the Copilot's role (e.g., slide designer), specific commands or skills (e.g., editing slide content), illustrative examples, and a query containing details pertinent to the presentation's topic.</p>
+<p><strong>LLM Performance Highly Depends on Prompts</strong></p>
+<p>The quality of an LLM's output is contingent on prompts. We've witnessed the trend of longer and more sophisticated prompts because it can:</p>
+<ul>
+<li>Provide clearer, more specific instructions to LLMs</li>
+<li>Offer more contextual examples for the LLMs to follow</li>
+<li>Enhance relevant information retrieval in Retrieval Augmented Generation (RAG)</li>
+<li>Facilitate more in-depth conversations in Multi-Agent Conversations</li>
+</ul>
+<p>Given its significance, we must consider the effectiveness and efficiency of information delivery through prompts from human to LLMs. In our imagination, all the words written in prompts should be caught by LLMs in a cheap cost and used to generate the desired output.
+However, this is not the case in reality. In fact, the current state of human-LLM communication through prompts is far from ideal, thus affecting the quality of real-world LLM applications.
+Now let's dive into the details of the challenges in human-LLM communication through prompts.</p>
+<h3 id="challenges-in-human-to-llm-communications">Challenges in Human-to-LLM Communications</h3>
+<h4 id="high-costs-associated-with-processing-long-prompts">High costs associated with processing long prompts</h4>
+<p>A primary issue is the cost associated with prompt processing, which escalates with prompt length.</p>
+<p>The computational complexity of processing inputs grows quadratically with prompt length, making longer prompts more resource-intensive.</p>
+<h4 id="redundancy-degrades-the-performance-of-llm">Redundancy degrades the performance of LLM</h4>
+<p>Prompts often contain superfluous and irrelevant information, leading to distractions for the LLMs and resulting in subpar outputs.</p>
+<p>Firstly, most of the prompts are manually written. Although guidance on writing effective prompts abounds, crafting the perfect prompt is still a challenging endeavor. To fully articulate their needs, users often include unnecessary and irrelevant content, such as unnecessary examples and details, but LLMs are easily distracted by these irrelevant information.</p>
+<p>For example, in the left of the following figure (<em>source: <a href="https://arxiv.org/abs/2310.06839">LongLLMLingua</a></em>), LLM's performance degrade significant when given more irrelevant information in the prompt. In the right of the figure (<em>source: <a href="https://arxiv.org/abs/2307.03172">lost-in-the-middle</a></em>), we can see that the performance of LLMs saturates long before the retriever recall, indicating that the models have difficulty making use of the extra retrieved documents because of the irrelevant information in them.</p>
+<p><img alt="Redundancy Degrade Performance" src="../.attachments/prompt_compression_redundancy_degrade_perf.png" /></p>
+<p>Secondly, language is inherently redundant, especially in the scenarios of natural conversations, such as meeting transcripts. Therefore, prompts in such scenarios are likely to contain redundant and irrelevant information.</p>
+<p>Finally, cases such as RAG and Multi-Agent Conversations are prone to introducing less relevant information into prompts. Particularly for RAG, the retrieved documents are recalled based on the text similarity. However, the text similarity is not always a good indicator of the relevance of the retrieved documents to the question. For example, the retrieved documents may contain the same words as the question, but the words are used in a different context. In this case, the retrieved documents are not relevant to the question, but the LLMs may still be distracted by the irrelevant information in the retrieved documents.</p>
+<h4 id="positional-bias-that-leads-to-selective-information-loss">Positional bias that leads to selective information loss</h4>
+<p>LLMs, while sensitive to redundant and irrelevant information, also show a positional bias, meaning they are prone to missing information placed in certain parts of the prompt.</p>
+<p>As shown in the following figure (<em>source: <a href="https://arxiv.org/abs/2307.03172">lost-in-the-middle</a></em>), the performance of LLMs degrades significantly when the relevant information is placed in the middle of the prompt (on the left of the figure). Even query-aware contextualization (placing the query before and after the documents, on the right of the figure) does not substantially mitigate this issue.</p>
+<p><img alt="Positional Bias" src="../.attachments/prompt_compression_positional_bias.png" /></p>
+<p>This kind of positional bias exists in a wide range of LLMs, as shown by the <a href="https://github.com/gkamradt/LLMTest_NeedleInAHaystack">Needle-in-a-Haystack</a> experiment, even the most advanced LLMs like GPT-4-128K and Claude 2.1 (200K Tokens) are not immune to this issue (visualized as below, <em>source: <a href="https://github.com/gkamradt/LLMTest_NeedleInAHaystack">github.com/gkamradt</a></em>).</p>
+<p><img alt="Pressure Testing GPT-4-128K With Long Context Recall" src="https://github.com/gkamradt/LLMTest_NeedleInAHaystack/raw/main/img/GPT_4_testing.png" /></p>
+<p><img alt="Claude 2.1 (200K Tokens) - Pressure Testing Long Context Recall" src="https://github.com/gkamradt/LLMTest_NeedleInAHaystack/raw/main/img/Claude_2_1_testing.png" /></p>
+<h4 id="summary-of-challenges-in-human-to-llm-communications">Summary of Challenges in Human-to-LLM Communications</h4>
+<p>The prompt serves as the pivotal communication channel between humans and LLMs, yet it is fraught with challenges:</p>
+<ul>
+<li>High costs associated with processing long prompts</li>
+<li>Redundancy and noise that degrade the quality of LLM outputs</li>
+<li>Positional bias that leads to selective information loss</li>
+</ul>
+<h2 id="enhancing-communication-with-llmlingua">Enhancing Communication with LLMLingua</h2>
+<p>The challenges associated with suboptimal communication channels have been extensively documented across various fields. In information theory and communication, data compression and adaptive information flow techniques are employed to streamline machine-to-machine communication, thereby reducing transmission costs and optimizing for channel constraints.</p>
+<p>In a parallel vein to the strategies applied to address imperfect information transmission in both wireless and wired communications, we present the <strong>LLMLingua</strong> series of works, a system crafted to elevate human-to-LLM communication through two key components:</p>
+<ul>
+<li>
+<p><strong>Compression</strong>: This entails the strategic removal of superfluous and tangential information from prompts, distilling the content to its essence.</p>
+</li>
+<li>
+<p><strong>Reorganization</strong>: This step involves the thoughtful rearrangement of prompt content to counteract the LLM's positional bias, ensuring that critical information receives the appropriate attention.</p>
+</li>
+</ul>
+<p>With adoption of these techniques, we can enhance the efficiency and effectiveness of human-to-LLM communication, thereby improving the quality of LLM outputs.</p>
+<ul>
+<li>LLMLingua achieving up to 20x (ICL, ~Acc), 100+x (Online Meeting, ~Acc), 6x(Summarization, ~Acc).</li>
+<li>LLMLingua mitigate “lost in the middle” issue and improve up to 21.4% with only 1/4 of the tokens.</li>
+<li>Successfully integrated by <a href="https://github.com/run-llama/llama_index/blob/286f2f7964db061f455641490d429a7a0dcf4622/llama_index/indices/postprocessor/longllmlingua.py">LlamaIndex</a>, a widely used RAG framework.</li>
+<li>Summarized as an important module in Advanced RAG.</li>
+<li>Engaging in deeper collaboration with real-world applications.</li>
+</ul>
+<h3 id="architecture">Architecture</h3>
+<p>Now let's dive into the architecture of our proposal to see how we achieve the above goals. The following diagram illustrates the overall structure of our approach, in which the <em>Gray Italicized</em> boxes are steps of LLMLingua (also shared by LongLLMLingua) while the others are only for LongLLMLingua.</p>
+<p><img alt="Architecture" src="../.attachments/prompt_compression_longllmlingua_architecture.png" /></p>
+<p>Here is a brief description of each step:
+1. <strong>Coarse-Grained Reorganization</strong>: Firstly we use a coarse-grained relevance measurement to identify the relevant segments of the prompt. After the relevant segments are identified, the segments are reorganized according to their relevance to the question and task to counteract the LLM's positional bias. Then we allocate a budget (compression ratio) to each segment according to its relevance. The budget is used in the next step to compress the prompt by removing the less relevant tokens.</p>
+<ol>
+<li>
+<p><strong>Token-Level Iterative Compression</strong>: In this step, we use a fine-grained relevance measurement to identify the relevant tokens within each segment. Then we iteratively remove the less relevant tokens until the budget is exhausted. The fine-grained relevance measurement is based on the Pointwise Mutual Information (PMI) between the token and the question/task.</p>
+</li>
+<li>
+<p><strong>Execution</strong>: After the prompt is compressed and reorganized, it is fed into the LLM for execution.</p>
+</li>
+<li>
+<p><strong>Recovery</strong>: The output of the LLM is then translated back from compressed domain (if any) to the plaintext domain. This recovery step is on demand and only used when the output needs to be translated back to the original prompt. This method relies on the subsequence relationship among tokens in the original prompt, compressed prompt, and LLMs' response.</p>
+</li>
+</ol>
+<h4 id="relevance-measurement-the-foundation-of-optimization">Relevance Measurement: The Foundation of Optimization</h4>
+<p>Both the coarse-grained and fine-grained relevance measurements are based on the perplexity of the token given the context. The perplexity is calculated by a Small-scale Language Model (SLM) (<em>e.g.</em>, LLAMA 7B).
+The perplexity of a token or sequence given the context is a measure of how likely the token or sequence is to appear in the context. The lower the perplexity, the more likely the token is to appear in the context. Therefore, the perplexity can be used as a measure of relevance.</p>
+<h5 id="understanding-perplexity">Understanding Perplexity</h5>
+<p>For those new to the concept of perplexity, it is a measurement used in natural language processing to quantify how well a probability model predicts a sample. A lower perplexity indicates a better prediction.</p>
+<p>Given a token <span class="arithmatex">\(x_i\)</span> from a sequence <span class="arithmatex">\(X=(x_0, \ldots, x_n)\)</span>, where each <span class="arithmatex">\(x_{k=0..n}\)</span> belongs to the vocabulary <span class="arithmatex">\(\mathcal{V}\)</span>, the perplexity of <span class="arithmatex">\(x_i\)</span> given the preceding tokens <span class="arithmatex">\(x_{&lt;i}\)</span> is defined as:</p>
+<div class="arithmatex">\[
+\text{PPL}(x_i | x_{&lt;i}) := 2^{H_{CE}(x_i | x_{&lt;i})}
+\]</div>
+<p>Here, <span class="arithmatex">\(H_{CE}(x_i | x_{&lt;i})\)</span> represents the Cross Entropy between the predicted distribution <span class="arithmatex">\(p_\theta\)</span> from the language model <span class="arithmatex">\(\theta\)</span> and the ground-truth distribution <span class="arithmatex">\(q_i\)</span> for the token <span class="arithmatex">\(x_i\)</span>:</p>
+<div class="arithmatex">\[
+H_{CE}(x_i | x_{&lt;i}) := - \sum_{v\sim\mathcal{V}} q_i(v)\log p_\theta(v|x_{&lt;i}) = - \log p_\theta(x_i|x_{&lt;i})
+\]</div>
+<p>The simplification of the cross-entropy term is due to the one-hot nature of the ground-truth distribution <span class="arithmatex">\(q_i\)</span>:</p>
+<div class="arithmatex">\[
+q_i(v) = \begin{cases}
+1 &amp; \text{if } v = x_i \\
+0 &amp; \text{otherwise}
+\end{cases}
+\]</div>
+<p>Thus, the log perplexity <span class="arithmatex">\(\text{LP}(x_i | x_{&lt;i})\)</span> of the token <span class="arithmatex">\(x_i\)</span> is:</p>
+<div class="arithmatex">\[
+\text{LP}(x_i | x_{&lt;i}) := \log_2 \text{PPL}(x_i | x_{&lt;i}) = - \log p_\theta(x_i|x_{&lt;i})
+\]</div>
+<p>Extending this concept to a sequence <span class="arithmatex">\(X\)</span>, the perplexity given a context <span class="arithmatex">\(C\)</span> (the tokens before <span class="arithmatex">\(X\)</span>) is:</p>
+<div class="arithmatex">\[
+\text{LP}(X|C) := \frac{1}{n} \sum_{i=0}^n \text{LP}(x_i | C, x_{&lt;i}) = - \frac{1}{n} \sum_{i=0}^n \log p_\theta(x_i|C, x_{&lt;i})
+\]</div>
+<p>The sequence perplexity is the average log perplexity across all tokens in the sequence, reflecting how well the language model predicts each token in its context. This concept is crucial in the computation of perplexity as detailed in the <a href="https://huggingface.co/docs/transformers/perplexity">Hugging Face documentation</a>.</p>
+<h4 id="coarse-grained-relevance-measurement">Coarse-Grained Relevance Measurement</h4>
+<p>This approach assesses relevance at a broader level, considering larger segments of the prompt for their informational value relative to the user's query or task. Here segments can be paragraphs, sentences, demonstrations (examples) in Few-Shot learning tasks, or even documents in multi-doc Q&amp;A task.</p>
+<p>For a prompt composed as below:</p>
+<div class="arithmatex">\[
+X = (I, S_1, \ldots, S_K, Q)
+\]</div>
+<p>where <span class="arithmatex">\(I\)</span> is the instruction, <span class="arithmatex">\(S_k\)</span> is the <span class="arithmatex">\(k\)</span>-th segment, and <span class="arithmatex">\(Q\)</span> is the question (query) or task, we can quantify the relevance <span class="arithmatex">\(r_k\)</span> of each segment <span class="arithmatex">\(S_k\)</span> to the question or task <span class="arithmatex">\(Q\)</span> using the following formula:</p>
+<div class="arithmatex">\[
+r_k := -\text{LP}(Q, R | S_k)
+\]</div>
+<p>where <span class="arithmatex">\(R\)</span> denotes a restrictive statement that trigger the SLM to predict the relevance of the segment <span class="arithmatex">\(S_k\)</span> to the question or task <span class="arithmatex">\(Q\)</span>. Particularly, we use "<em>We can get the answer to this question in the given documents</em>" in LongLLMLingua. Of course, other statements like "The answer to the question is in the segment" or "The segment is relevant to the task" may also work.</p>
+<h4 id="fine-grained-token-level-relevance-measurement">Fine-Grained (Token-Level) Relevance Measurement</h4>
+<p>Building on the principles of the <a href="https://en.wikipedia.org/wiki/Pointwise_mutual_information">Pointwise Mutual Information (PMI)</a>, a statistical measurement of association within the realms of <a href="https://en.wikipedia.org/wiki/Probability_theory">probability theory</a> and <a href="https://en.wikipedia.org/wiki/Information_theory">information theory</a>, we introduce a token-level relevance metric.</p>
+<p>For a given token <span class="arithmatex">\(x_i\)</span> within the prompt sequence <span class="arithmatex">\(X=(x_0, \ldots, x_n)\)</span>, we can quantify its relevance to a specific task or query, represented by <span class="arithmatex">\(Q\)</span>, using the following formula:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+s_i &amp;:= \text{LP}(x_i | x_{&lt;i}) - \text{LP}(x_i | Q, x_{&lt;i}) \\
+&amp;= \log \frac{p_\theta(x_i | Q, x_{&lt;i})}{p_\theta(x_i | x_{&lt;i})} \\
+&amp;= \text{PMI}(x_i; Q | x_{&lt;i})
+\end{aligned}
+\]</div>
+<p>where <span class="arithmatex">\(\text{PMI}\)</span> represents the <a href="https://en.wikipedia.org/wiki/Pointwise_mutual_information">Pointwise Mutual Information</a>, a statistical measurement of association within the realms of probability and information theory, defined as below:</p>
+<div class="arithmatex">\[
+\text{PMI}(a;b) := \log\frac{p(a,b)}{p(a)p(b)}=\log\frac{p(b|a)}{p(b)}
+\]</div>
+<p>As shown in the following figure (<em>source: <a href="https://arxiv.org/abs/2310.06839">LongLLMLingua</a></em>), the contrastive perplexity can effectively identify the relevant tokens in the prompt (the peak of contrastive perplexity follows the answer's position changes).</p>
+<p><img alt="prompt_compression_token_level_relevance_measure" src="../.attachments/prompt_compression_token_level_relevance_measure.png" /></p>
+<p>Through this fine-grained analysis, we can discern the relevance of individual tokens and make informed decisions about which elements to compress or reposition, thereby enhancing the overall clarity and efficiency of the prompt.</p>
+<h2 id="evaluation-and-case-study">Evaluation and Case Study</h2>
+<p>Firstly we evaluate the performance of LLMLingua on the Multi-Document Question Answering task as below. It can perfectly mitigate the "lost in the middle" issue and improve up to 21.4% with only 1/4 of the tokens.</p>
+<p><img alt="prompt_compression_longllmlingua_qa_perf" src="../.attachments/prompt_compression_longllmlingua_qa_perf.png" /></p>
+<p>The following show LLMLingua's performance on the math and reasoning tasks.</p>
+<p><img alt="prompt_compression_results_math_reasoning" src="../.attachments/prompt_compression_results_math_reasoning.png" /></p>
+<p>To gain a deeper insight into the effects of token-level compression, the following figure visualizes the tokens retained (highlighted in green on the left) and those discarded (displayed with a light-blue background on the left). In the center of this illustration, we've encapsulated four types of phenomena that LLMLingua employs to compress the prompt. On the right side of the figure, it is evident that GPT models can almost perfectly reconstruct the original prompt from the compressed version.</p>
+<p><img alt="prompt_compression_results_case_study" src="../.attachments/prompt_compression_results_case_study.png" /></p>
+<p>And here is the performance of LLMLingua on the more tasks and datasets. Interested readers can refer to the <a href="https://arxiv.org/abs/2310.06839">paper</a> for more details.</p>
+<p><img alt="prompt_compression_results_longbench" src="../.attachments/prompt_compression_results_longbench.png" /></p>
+<h2 id="references">References</h2>
+<ul>
+<li>LLMLingua Project Pages</li>
+<li><a href="https://llmlingua.com/">Homepage</a>,</li>
+<li>LLMLingua: <a href="https://aclanthology.org/2023.emnlp-main.825.pdf">EMNLP'23</a>, <a href="https://github.com/microsoft/LLMLingua">Github</a>, <a href="https://huggingface.co/spaces/microsoft/LLMLingua">Demo</a>,</li>
+<li>LongLLMLingua: <a href="https://arxiv.org/abs/2310.06839">Arxiv</a>, <a href="https://github.com/microsoft/LLMLingua/blob/main/examples/RAG.ipynb">Github</a></li>
+<li>Lost in the Middle: How Language Models Use Long Contexts, <a href="https://arxiv.org/abs/2307.03172">Arxiv</a></li>
+<li>Large Language Models Can Be Easily Distracted by Irrelevant Context, <a href="https://arxiv.org/abs/2302.00093">Arxiv</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
