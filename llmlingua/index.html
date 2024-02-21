@@ -618,7 +618,7 @@
 <h1 id="improving-communication-from-humans-to-llms-through-llmlingua">Improving Communication from Humans to LLMs through LLMLingua</h1>
 <h2 id="prompts-bridging-human-intention-and-llm">Prompts: Bridging Human Intention and LLM</h2>
 <p>In the era of Large Language Models (LLMs), users articulate their requests to LLMs through natural language prompts, which serve as directives for the models to produce tailored responses. This communicative mechanism is pivotal for the functionality of AI tools such as the coding assistant Github Copilot and the self-directed AI entity AutoGPT.</p>
-<p><img alt="Prompts as a Communication Channel" src="../.attachments/prompts_as_channel.png" /></p>
+<p><img alt="Prompts as a Communication Channel" src="../images/prompts_as_channel.png" /></p>
 <p>Take, for example, Presentation Copilot, an AI designed to assist with creating presentation slides. A user looking to prepare for an upcoming presentation would express their needs to the Copilot using a prompt. This prompt might encompass a variety of elements, such as the Copilot's role (e.g., slide designer), specific commands or skills (e.g., editing slide content), illustrative examples, and a query containing details pertinent to the presentation's topic.</p>
 <p><strong>LLM Performance Highly Depends on Prompts</strong></p>
 <p>The quality of an LLM's output is contingent on prompts. We've witnessed the trend of longer and more sophisticated prompts because it can:</p>
@@ -639,13 +639,13 @@ Now let's dive into the details of the challenges in human-LLM communication thr
 <p>Prompts often contain superfluous and irrelevant information, leading to distractions for the LLMs and resulting in subpar outputs.</p>
 <p>Firstly, most of the prompts are manually written. Although guidance on writing effective prompts abounds, crafting the perfect prompt is still a challenging endeavor. To fully articulate their needs, users often include unnecessary and irrelevant content, such as unnecessary examples and details, but LLMs are easily distracted by these irrelevant information.</p>
 <p>For example, in the left of the following figure (<em>source: <a href="https://arxiv.org/abs/2310.06839">LongLLMLingua</a></em>), LLM's performance degrade significant when given more irrelevant information in the prompt. In the right of the figure (<em>source: <a href="https://arxiv.org/abs/2307.03172">lost-in-the-middle</a></em>), we can see that the performance of LLMs saturates long before the retriever recall, indicating that the models have difficulty making use of the extra retrieved documents because of the irrelevant information in them.</p>
-<p><img alt="Redundancy Degrade Performance" src="../.attachments/prompt_compression_redundancy_degrade_perf.png" /></p>
+<p><img alt="Redundancy Degrade Performance" src="../images/prompt_compression_redundancy_degrade_perf.png" /></p>
 <p>Secondly, language is inherently redundant, especially in the scenarios of natural conversations, such as meeting transcripts. Therefore, prompts in such scenarios are likely to contain redundant and irrelevant information.</p>
 <p>Finally, cases such as RAG and Multi-Agent Conversations are prone to introducing less relevant information into prompts. Particularly for RAG, the retrieved documents are recalled based on the text similarity. However, the text similarity is not always a good indicator of the relevance of the retrieved documents to the question. For example, the retrieved documents may contain the same words as the question, but the words are used in a different context. In this case, the retrieved documents are not relevant to the question, but the LLMs may still be distracted by the irrelevant information in the retrieved documents.</p>
 <h4 id="positional-bias-that-leads-to-selective-information-loss">Positional bias that leads to selective information loss</h4>
 <p>LLMs, while sensitive to redundant and irrelevant information, also show a positional bias, meaning they are prone to missing information placed in certain parts of the prompt.</p>
 <p>As shown in the following figure (<em>source: <a href="https://arxiv.org/abs/2307.03172">lost-in-the-middle</a></em>), the performance of LLMs degrades significantly when the relevant information is placed in the middle of the prompt (on the left of the figure). Even query-aware contextualization (placing the query before and after the documents, on the right of the figure) does not substantially mitigate this issue.</p>
-<p><img alt="Positional Bias" src="../.attachments/prompt_compression_positional_bias.png" /></p>
+<p><img alt="Positional Bias" src="../images/prompt_compression_positional_bias.png" /></p>
 <p>This kind of positional bias exists in a wide range of LLMs, as shown by the <a href="https://github.com/gkamradt/LLMTest_NeedleInAHaystack">Needle-in-a-Haystack</a> experiment, even the most advanced LLMs like GPT-4-128K and Claude 2.1 (200K Tokens) are not immune to this issue (visualized as below, <em>source: <a href="https://github.com/gkamradt/LLMTest_NeedleInAHaystack">github.com/gkamradt</a></em>).</p>
 <p><img alt="Pressure Testing GPT-4-128K With Long Context Recall" src="https://github.com/gkamradt/LLMTest_NeedleInAHaystack/raw/main/img/GPT_4_testing.png" /></p>
 <p><img alt="Claude 2.1 (200K Tokens) - Pressure Testing Long Context Recall" src="https://github.com/gkamradt/LLMTest_NeedleInAHaystack/raw/main/img/Claude_2_1_testing.png" /></p>
@@ -677,7 +677,7 @@ Now let's dive into the details of the challenges in human-LLM communication thr
 </ul>
 <h3 id="architecture">Architecture</h3>
 <p>Now let's dive into the architecture of our proposal to see how we achieve the above goals. The following diagram illustrates the overall structure of our approach, in which the <em>Gray Italicized</em> boxes are steps of LLMLingua (also shared by LongLLMLingua) while the others are only for LongLLMLingua.</p>
-<p><img alt="Architecture" src="../.attachments/prompt_compression_longllmlingua_architecture.png" /></p>
+<p><img alt="Architecture" src="../images/prompt_compression_longllmlingua_architecture.png" /></p>
 <p>Here is a brief description of each step:
 1. <strong>Coarse-Grained Reorganization</strong>: Firstly we use a coarse-grained relevance measurement to identify the relevant segments of the prompt. After the relevant segments are identified, the segments are reorganized according to their relevance to the question and task to counteract the LLM's positional bias. Then we allocate a budget (compression ratio) to each segment according to its relevance. The budget is used in the next step to compress the prompt by removing the less relevant tokens.</p>
 <ol>
@@ -746,17 +746,17 @@ s_i &amp;:= \text{LP}(x_i | x_{&lt;i}) - \text{LP}(x_i | Q, x_{&lt;i}) \\
 \text{PMI}(a;b) := \log\frac{p(a,b)}{p(a)p(b)}=\log\frac{p(b|a)}{p(b)}
 \]</div>
 <p>As shown in the following figure (<em>source: <a href="https://arxiv.org/abs/2310.06839">LongLLMLingua</a></em>), the contrastive perplexity can effectively identify the relevant tokens in the prompt (the peak of contrastive perplexity follows the answer's position changes).</p>
-<p><img alt="prompt_compression_token_level_relevance_measure" src="../.attachments/prompt_compression_token_level_relevance_measure.png" /></p>
+<p><img alt="prompt_compression_token_level_relevance_measure" src="../images/prompt_compression_token_level_relevance_measure.png" /></p>
 <p>Through this fine-grained analysis, we can discern the relevance of individual tokens and make informed decisions about which elements to compress or reposition, thereby enhancing the overall clarity and efficiency of the prompt.</p>
 <h2 id="evaluation-and-case-study">Evaluation and Case Study</h2>
 <p>Firstly we evaluate the performance of LLMLingua on the Multi-Document Question Answering task as below. It can perfectly mitigate the "lost in the middle" issue and improve up to 21.4% with only 1/4 of the tokens.</p>
-<p><img alt="prompt_compression_longllmlingua_qa_perf" src="../.attachments/prompt_compression_longllmlingua_qa_perf.png" /></p>
+<p><img alt="prompt_compression_longllmlingua_qa_perf" src="../images/prompt_compression_longllmlingua_qa_perf.png" /></p>
 <p>The following show LLMLingua's performance on the math and reasoning tasks.</p>
-<p><img alt="prompt_compression_results_math_reasoning" src="../.attachments/prompt_compression_results_math_reasoning.png" /></p>
+<p><img alt="prompt_compression_results_math_reasoning" src="../images/prompt_compression_results_math_reasoning.png" /></p>
 <p>To gain a deeper insight into the effects of token-level compression, the following figure visualizes the tokens retained (highlighted in green on the left) and those discarded (displayed with a light-blue background on the left). In the center of this illustration, we've encapsulated four types of phenomena that LLMLingua employs to compress the prompt. On the right side of the figure, it is evident that GPT models can almost perfectly reconstruct the original prompt from the compressed version.</p>
-<p><img alt="prompt_compression_results_case_study" src="../.attachments/prompt_compression_results_case_study.png" /></p>
+<p><img alt="prompt_compression_results_case_study" src="../images/prompt_compression_results_case_study.png" /></p>
 <p>And here is the performance of LLMLingua on the more tasks and datasets. Interested readers can refer to the <a href="https://arxiv.org/abs/2310.06839">paper</a> for more details.</p>
-<p><img alt="prompt_compression_results_longbench" src="../.attachments/prompt_compression_results_longbench.png" /></p>
+<p><img alt="prompt_compression_results_longbench" src="../images/prompt_compression_results_longbench.png" /></p>
 <h2 id="references">References</h2>
 <ul>
 <li>LLMLingua Project Pages</li>
